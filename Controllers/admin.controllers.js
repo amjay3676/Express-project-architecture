@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
-require("../Node.Js-sample-project-structure/node_modules/dotenv").config();
+require('dotenv').config();
 const jwt = require("jsonwebtoken");
-const Admin = require("../Node.Js-sample-project-structure/Models/admin");
+const Admin = require("../Models/admin");
 
 
 const adminRegister = (req, res, next) => {

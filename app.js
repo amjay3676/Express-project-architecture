@@ -2,6 +2,7 @@ var express = require('express');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
+require('dotenv').config();
 
 var usersRouter = require('./Routes/users.routes');
 var adminRouter = require('./Routes/admin.routes');
@@ -12,18 +13,18 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const dbURI = process.env.dbURI;
+// const dbURI = process.env.dbURI;
 
-mongoose
-	.connect(dbURI, {
-		useNewUrlParser: true,
-		useCreateIndex: true,
-		useUnifiedTopology: true,
-	})
-	.then(() => console.log("Database Connected"))
-	.catch((err) => console.log(err));
+// mongoose
+// 	.connect(dbURI, {
+// 		useNewUrlParser: true,
+// 		useCreateIndex: true,
+// 		useUnifiedTopology: true,
+// 	})
+// 	.then(() => console.log("Database Connected"))
+// 	.catch((err) => console.log(err));
 
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter)
